@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Ghana — Heart of Africa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #005C35;
+            --green-dark: #003D22;
+            --green-light: #007A48;
+            --gold: #D4A843;
+            --gold-dark: #B8892A;
+            --red: #C0392B;
+            --cream: #F5F0E8;
+            --charcoal: #1A1A1A;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--cream);
+            font-family: 'Inter', system-ui, sans-serif;
+            color: var(--charcoal);
+        }
+
+        /* ── KENTE STRIPE ── */
+        .kente-stripe {
+            height: 6px;
+            width: 100%;
+            background: repeating-linear-gradient(
+                    90deg,
+                    var(--red)     0px,   var(--red)     40px,
+                    var(--gold)    40px,  var(--gold)    80px,
+                    var(--green)   80px,  var(--green)   120px,
+                    var(--charcoal)120px, var(--charcoal)160px
+            );
+        }
+
+        /* ── NAVBAR ── */
+        header {
+            position: fixed;
+            top: 16px;
+            left: 0; right: 0;
+            z-index: 100;
+            padding: 0 40px;
+        }
+
+        .nav_container {
+            height: 68px;
+            display: flex;
+            align-items: center;
+            padding: 0 28px;
+            border-radius: 40px;
+            background: rgba(245,240,232,0.88);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.6);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+        }
+
+        .navbar {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .brand span.r  { color: var(--red); }
+        .brand span.g  { color: var(--gold-dark); }
+        .brand span.b  { color: var(--charcoal); }
+        .brand span.gr { color: var(--green); }
+
+        .nav-links { display: flex; gap: 32px; list-style: none; }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-size: 15px;
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 4px;
+        }
+
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            left: 0; bottom: 0;
+            width: 0; height: 2px;
+            background: var(--gold);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links li a:hover { color: var(--green); }
+        .nav-links li a:hover::after { width: 100%; }
+
+        .btn button {
+            background: var(--green);
+            color: white;
+            border: none;
+            padding: 11px 24px;
+            border-radius: 20px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.15s;
+        }
+
+        .btn button:hover {
+            background: var(--green-dark);
+            transform: translateY(-1px);
+        }
+
+        /* ── PAGE HERO (shorter — not full screen) ── */
+        .page-hero {
+            padding: 160px 80px 80px;
+            background-image:
+                    linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.72) 100%),
+                    url("pexels-axel-dagrou-956045343-20131678.jpg");
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+
+        .page-hero .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.25);
+            backdrop-filter: blur(8px);
+            padding: 7px 18px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            margin-bottom: 24px;
+        }
+
+        .page-hero .eyebrow .dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--gold);
+        }
+
+        .page-hero h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(38px, 6vw, 72px);
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .page-hero p {
+            font-size: clamp(15px, 1.6vw, 17px);
+            max-width: 620px;
+            margin: 0 auto;
+            line-height: 1.75;
+            opacity: 0.78;
+        }
+
+        .article-body {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 32px 100px;
+        }
+
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 64px;
+        }
+
+        .overview-card {
+            background: white;
+            border-radius: 12px;
+            padding: 28px 24px;
+            border-left: 4px solid var(--gold);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+        }
+
+        .overview-card .card-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold-dark);
+            margin-bottom: 8px;
+        }
+
+        .overview-card .card-value {
+            font-family: 'Oswald', sans-serif;
+            font-size: 26px;
+            font-weight: 600;
+            color: var(--green);
+            margin-bottom: 4px;
+        }
+
+        .overview-card .card-desc {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+
+        .section-block {
+            margin-bottom: 60px;
+        }
+
+        .section-block .section-tag {
+            display: inline-block;
+            background: var(--green);
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 5px 12px;
+            border-radius: 4px;
+            margin-bottom: 14px;
+        }
+
+        .section-block h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(24px, 3vw, 34px);
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 18px;
+            line-height: 1.1;
+        }
+
+        .section-block h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--green);
+            margin: 32px 0 12px;
+        }
+
+        .section-block p {
+            font-size: 16px;
+            line-height: 1.85;
+            color: #333;
+            margin-bottom: 16px;
+        }
+
+        .section-block p strong {
+            color: var(--charcoal);
+            font-weight: 600;
+        }
+
+
+        .kente-divider {
+            height: 4px;
+            border-radius: 2px;
+            background: repeating-linear-gradient(
+                    90deg,
+                    var(--red)      0px,  var(--red)      24px,
+                    var(--gold)     24px, var(--gold)     48px,
+                    var(--green)    48px, var(--green)    72px,
+                    var(--charcoal) 72px, var(--charcoal) 96px
+            );
+            margin: 48px 0;
+        }
+
+
+        .pull-quote {
+            border-left: 4px solid var(--gold);
+            background: white;
+            padding: 24px 28px;
+            border-radius: 0 8px 8px 0;
+            margin: 32px 0;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+        }
+
+        .pull-quote p {
+            font-family: 'Oswald', sans-serif;
+            font-size: 20px;
+            font-weight: 400;
+            color: var(--green);
+            line-height: 1.4;
+            margin: 0;
+        }
+
+
+        .fact-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 24px 0;
+        }
+
+        .fact-tag {
+            background: rgba(0, 92, 53, 0.08);
+            color: var(--green);
+            border: 1px solid rgba(0, 92, 53, 0.2);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--green);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 2px;
+            margin-top: 16px;
+            transition: color 0.2s;
+        }
+
+        .read-more:hover { color: var(--gold-dark); }
+
+        .read-more::after {
+            content: '→';
+            transition: transform 0.2s;
+        }
+
+        .read-more:hover::after { transform: translateX(4px); }
+
+
+        footer { background: var(--charcoal); color: white; }
+
+        .footer-inner {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+            padding: 64px 80px 48px;
+        }
+
+        .footer-col h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-col ul li a,
+        .footer-col ul li {
+            text-decoration: none;
+            color: rgba(255,255,255,0.55);
+            font-size: 14px;
+            line-height: 1.5;
+            transition: color 0.2s;
+        }
+
+        .footer-col ul li a:hover { color: white; }
+
+        .footer-col.social p { margin-bottom: 10px; }
+
+        .footer-col.social a {
+            display: inline-block;
+            color: rgba(255,255,255,0.55);
+            font-size: 14px;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-col.social a:hover { color: white; }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding: 20px 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.35); }
+
+        .footer-logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+
+        @media (max-width: 768px) {
+            header { padding: 0 16px; }
+            .nav-links { display: none; }
+            .page-hero { padding: 140px 24px 60px; }
+            .article-body { padding: 48px 20px 72px; }
+            .overview-grid { grid-template-columns: 1fr; }
+            .footer-inner { grid-template-columns: 1fr; padding: 48px 28px 32px; gap: 36px; }
+            .footer-bottom { flex-direction: column; gap: 10px; padding: 20px 28px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="kente-stripe"></div>
+
+
+<header>
+    <div class="nav_container">
+        <div class="navbar">
+            <div class="brand">
+                <h1>
+                    <span class="r">Gh</span><span class="g">a</span><span class="b">n</span><span class="gr">a</span>
+                </h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="Ghanaclonewebpage.html">Home</a></li>
+                <li><a href="Ghanaabout.html">About</a></li>
+                <li><a href="ghanaculture.html">Culture</a></li>
+            </ul>
+            <div class="btn"><button>Explore</button></div>
+        </div>
+    </div>
+</header>
+
+
+<section class="page-hero">
+    <div class="eyebrow">
+        <span class="dot"></span>
+        West Africa
+        <span class="dot"></span>
+    </div>
+    <h2>ABOUT THE REPUBLIC OF GHANA</h2>
+    <p>A nation of 35 million people, rich history, and one of Africa's most enduring democracies — here is everything you need to know about Ghana.</p>
+</section>
+
+
+<main class="article-body">
+
+
+    <div class="overview-grid">
+        <div class="overview-card">
+            <div class="card-label">Area</div>
+            <div class="card-value">239,567 km²</div>
+            <div class="card-desc">Spanning coastal savannas, forests, and northern savanna.</div>
+        </div>
+        <div class="overview-card">
+            <div class="card-label">Population</div>
+            <div class="card-value">35 Million+</div>
+            <div class="card-desc">13th most populous in Africa, 2nd in West Africa.</div>
+        </div>
+        <div class="overview-card">
+            <div class="card-label">Capital</div>
+            <div class="card-value">Accra</div>
+            <div class="card-desc">Ghana's largest and most populous city.</div>
+        </div>
+        <div class="overview-card">
+            <div class="card-label">Independence</div>
+            <div class="card-value">6 March 1957</div>
+            <div class="card-desc">First country in Sub-Saharan Africa to gain sovereignty.</div>
+        </div>
+    </div>
+
+
+    <div class="section-block">
+        <span class="section-tag">Geography</span>
+        <h3>Location & Landscape</h3>
+        <p>
+            Ghana, officially the <strong>Republic of Ghana</strong>, is a country in West Africa. It borders <strong>Côte d'Ivoire</strong> to the west, <strong>Burkina Faso</strong> to the north, and <strong>Togo</strong> to the east, while its southern coastline faces the Gulf of Guinea and the Atlantic Ocean.
+        </p>
+        <p>
+            The country covers 239,567 km² (92,497 sq mi), with landscapes ranging from coastal savannas in the south to dense tropical rainforests and open northern savanna. With a population of over 35 million, Ghana is the thirteenth-most populous country in Africa and the second-most populous in West Africa. Its capital and largest city is <strong>Accra</strong>.
+        </p>
+        <div class="fact-tags">
+            <span class="fact-tag">Gulf of Guinea Coastline</span>
+            <span class="fact-tag">Tropical Rainforest</span>
+            <span class="fact-tag">Northern Savanna</span>
+            <span class="fact-tag">Lake Volta</span>
+        </div>
+    </div>
+
+    <div class="kente-divider"></div>
+
+
+    <div class="section-block">
+        <span class="section-tag">History</span>
+        <h3>From Ancient Kingdoms to Independence</h3>
+        <p>
+            The earliest kingdoms to emerge in Ghana were <strong>Bonoman</strong> in the south and the <strong>Kingdom of Dagbon</strong> in the north, with Bonoman established as far back as the 11th century. Over the following centuries, the <strong>Asante Empire</strong> and other Akan kingdoms rose to prominence in the south.
+        </p>
+        <p>
+            From the 15th century onward, the Portuguese Empire and later other European powers competed for trading rights in the region. By the 19th century, the British had established control of the coast. After more than a century of colonial resistance, the country's modern borders took shape, unifying four separate British colonial territories: the Gold Coast, Ashanti, the Northern Territories, and British Togoland — all brought together as an independent dominion within the Commonwealth of Nations.
+        </p>
+
+        <div class="pull-quote">
+            <p>"On 6 March 1957, Ghana became the first country in Sub-Saharan Africa to achieve independence."</p>
+        </div>
+
+        <p>
+            Under President <strong>Kwame Nkrumah</strong>, Ghana went on to play a leading role in the decolonisation of Africa and the broader Pan-African movement.
+        </p>
+    </div>
+
+    <div class="kente-divider"></div>
+
+
+    <div class="section-block">
+        <span class="section-tag">People & Government</span>
+        <h3>A Diverse and Democratic Nation</h3>
+        <p>
+            Ghana is a multi-ethnic nation with diverse linguistic and religious communities. The <strong>Akan</strong> are the largest ethnic group, though they represent a plurality rather than a majority. The majority of Ghanaians are <strong>Christians</strong> (71.3%), nearly a fifth are <strong>Muslims</strong>, and the remainder practice traditional faiths or no religion.
+        </p>
+        <p>
+            Politically, Ghana is a unitary constitutional democracy headed by a president who serves as both head of state and head of government. The country is recognised as one of Africa's more stable democracies, ranking <strong>seventh</strong> in the 2022 Ibrahim Index of African Governance and <strong>fifth</strong> in the 2024 Fragile States Index.
+        </p>
+        <p>
+            On the international stage, Ghana is a founding member of the <strong>Non-Aligned Movement</strong> and the <strong>African Union</strong>, and holds membership in the United Nations, ECOWAS, the Group of 24, and the Commonwealth of Nations.
+        </p>
+    </div>
+
+    <div class="kente-divider"></div>
+
+
+    <div class="section-block">
+        <span class="section-tag">Name & Identity</span>
+        <h3>The Empire of Ghana</h3>
+        <p>
+            The name <strong>Ghana</strong> originates from <em>Wagadu</em>, a West African empire that existed from the 3rd to 12th centuries. Arab traders involved in the trans-Saharan trade referred to Wagadu as "Ghana" — a title derived from <em>Kaya Maghan</em>, meaning <strong>ruler of gold</strong>, used by Wagadu's kings.
+        </p>
+
+        <h4>Adoption in Precolonial Scholarship</h4>
+        <p>
+            The earliest attempt to connect the peoples of the Gold Coast with ancient Ghana was made by Reverend J. B. Anaman around the turn of the 20th century. Drawing on earlier interpretations of Arabic geographical sources, Anaman argued for a historical connection between the Gold Coast and the ancient kingdom.
+        </p>
+        <p>
+            The theory gained wider traction through the teachings of Reverend W. T. Balmer between 1907 and 1911, who taught that the Akan people had migrated from the ancient kingdom near the Upper Niger. Though the hypothesis lacked linguistic and historical evidence, it became influential among educated elites and nationalist intellectuals.
+        </p>
+        <p>
+            It was later popularised in schools — particularly at Achimota in the 1920s — and further advanced through the academic writings of <strong>J. B. Danquah</strong>, who used Arabic and French translations to claim that the term "Ghana" was a corruption of <em>Akane</em> or <em>Akana</em>, connecting it to the ancient region of Akkad.
+        </p>
+
+        <a href="https://en.wikipedia.org/wiki/Ghana" target="_blank" class="read-more">Read the full history of Ghana on Wikipedia</a>
+    </div>
+
+</main>
+
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-col">
+            <h4>Ghana Services</h4>
+            <ul>
+                <li><a href="https://evisa.immigration.gov.gh/" target="_blank">Visa Application</a></li>
+                <li><a href="https://passport.mfa.gov.gh/" target="_blank">Passport Application</a></li>
+                <li><a href="https://nia.gov.gh/service/registration-of-citizens-in-ghana/" target="_blank">Ghana Card Registration</a></li>
+                <li><a href="https://www.mint.gov.gh/e-services-portal/registrationnaturalization-as-citizen-of-ghana/" target="_blank">Citizenship Registration</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Ghana Tourist Authority</h4>
+            <ul>
+                <li>info@ghana.travel</li>
+                <li>+233 (030) 700 7100</li>
+                <li>P.O Box GP 310, Accra, Ghana</li>
+                <li>No. 2 Haile Selassie St, Southridge, Accra</li>
+            </ul>
+        </div>
+        <div class="footer-col social">
+            <h4>Follow Ghana</h4>
+            <p><a href="https://www.facebook.com/pages/Ghana/109060342446769" target="_blank">Facebook</a></p>
+            <p><a href="#" target="_blank">WhatsApp</a></p>
+            <p><a href="https://www.instagram.com/ghanatourismauthority/" target="_blank">Instagram</a></p>
+            <p><a href="https://www.tiktok.com/tag/ghana" target="_blank">TikTok</a></p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="footer-logo">
+            <span style="color: var(--red)">Gh</span><span style="color: var(--gold)">a</span><span style="color: rgba(255,255,255,0.5)">n</span><span style="color: var(--green-light)">a</span>
+        </div>
+        <p>© 2026 Ghana Tourism. All rights reserved GH</p>
+    </div>
+</footer>
+
+</body>
+</html>

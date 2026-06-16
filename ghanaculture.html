@@ -1,0 +1,1076 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghana Culture — Soul of a Nation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brown:   #2C1810;
+            --orange:  #C4622D;
+            --gold:    #D4A843;
+            --gold-lt: #E8C06A;
+            --green:   #005C35;
+            --ivory:   #FBF6EE;
+            --charcoal:#1A1A1A;
+            --muted:   #7A6A5A;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--ivory);
+            font-family: 'Inter', sans-serif;
+            color: var(--charcoal);
+            overflow-x: hidden;
+        }
+
+        /* ── KENTE TOP STRIPE ── */
+        .kente-stripe {
+            height: 7px;
+            background: repeating-linear-gradient(
+                    90deg,
+                    var(--brown)  0px,  var(--brown)  30px,
+                    var(--gold)   30px, var(--gold)   60px,
+                    var(--green)  60px, var(--green)  90px,
+                    var(--orange) 90px, var(--orange) 120px
+            );
+        }
+
+        /* ── NAVBAR ── */
+        header {
+            position: fixed;
+            top: 14px; left: 0; right: 0;
+            z-index: 200;
+            padding: 0 36px;
+        }
+
+        .nav_container {
+            height: 66px;
+            display: flex;
+            align-items: center;
+            padding: 0 28px;
+            border-radius: 40px;
+            background: rgba(251,246,238,0.90);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(255,255,255,0.65);
+            box-shadow: 0 4px 28px rgba(44,24,16,0.10);
+        }
+
+        .navbar {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            color: var(--brown);
+        }
+
+        .brand span.r  { color: #C0392B; }
+        .brand span.g  { color: var(--gold); }
+        .brand span.b  { color: var(--brown); }
+        .brand span.gr { color: var(--green); }
+
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: var(--brown);
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            position: relative;
+            padding-bottom: 3px;
+        }
+
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            left: 0; bottom: 0;
+            width: 0; height: 2px;
+            background: var(--orange);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links li a:hover { color: var(--orange); }
+        .nav-links li a:hover::after { width: 100%; }
+
+        .btn button {
+            background: var(--brown);
+            color: var(--gold);
+            border: none;
+            padding: 10px 22px;
+            border-radius: 20px;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.15s;
+        }
+
+        .btn button:hover {
+            background: var(--orange);
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            position: relative;
+            overflow: hidden;
+            background: var(--brown);
+            color: white;
+            text-align: center;
+            padding: 140px 40px 100px;
+        }
+
+        /* Adinkra SVG watermark in hero */
+        .hero-adinkra {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.06;
+            pointer-events: none;
+        }
+
+        .hero-content { position: relative; z-index: 2; }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(212,168,67,0.4);
+            background: rgba(212,168,67,0.08);
+            color: var(--gold-lt);
+            padding: 7px 18px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 28px;
+        }
+
+        .hero-eyebrow .dot {
+            width: 5px; height: 5px;
+            border-radius: 50%;
+            background: var(--gold);
+        }
+
+        .hero h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(48px, 9vw, 110px);
+            font-weight: 900;
+            line-height: 0.9;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .hero h2 em {
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        .hero .sub {
+            font-size: clamp(14px, 2vw, 18px);
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            opacity: 0.6;
+            margin-bottom: 28px;
+        }
+
+        .hero p.lead {
+            max-width: 540px;
+            margin: 0 auto 44px;
+            font-size: clamp(15px, 1.6vw, 17px);
+            line-height: 1.8;
+            opacity: 0.72;
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 36px; left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            opacity: 0.4;
+        }
+
+        .hero-scroll span {
+            font-size: 9px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold-lt);
+        }
+
+        .arrow-down {
+            width: 18px; height: 18px;
+            border-right: 2px solid var(--gold);
+            border-bottom: 2px solid var(--gold);
+            transform: rotate(45deg);
+            animation: bounce 1.6s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: rotate(45deg) translateY(0); }
+            50%       { transform: rotate(45deg) translateY(5px); }
+        }
+
+        /* ── CULTURE NAV TABS ── */
+        .culture-nav {
+            background: var(--brown);
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .culture-nav::-webkit-scrollbar { display: none; }
+
+        .culture-nav a {
+            text-decoration: none;
+            color: rgba(255,255,255,0.45);
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 18px 24px;
+            border-bottom: 3px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
+            white-space: nowrap;
+        }
+
+        .culture-nav a:hover {
+            color: var(--gold);
+            border-bottom-color: var(--gold);
+        }
+
+        /* ── SECTION SHARED ── */
+        .culture-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 540px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .culture-section.flipped { direction: rtl; }
+        .culture-section.flipped > * { direction: ltr; }
+
+        .section-visual {
+            position: relative;
+            overflow: hidden;
+            background: var(--brown);
+            min-height: 480px;
+        }
+
+        /* Illustrated scene panels instead of photos */
+        .scene-kente {
+            background: linear-gradient(135deg, #8B2500 0%, #C4622D 40%, #D4A843 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .scene-music {
+            background: linear-gradient(135deg, #1a0a2e 0%, #2d1b4e 50%, #005C35 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .scene-food {
+            background: linear-gradient(135deg, #3d1f0a 0%, #7a3b10 50%, #C4622D 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .scene-festival {
+            background: linear-gradient(135deg, #004d28 0%, #005C35 50%, #D4A843 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .scene-language {
+            background: linear-gradient(135deg, #1A1A1A 0%, #2C1810 60%, #C4622D 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Large decorative adinkra per section */
+        .section-adinkra {
+            width: 280px;
+            height: 280px;
+            opacity: 0.25;
+        }
+
+        .section-content {
+            padding: 72px 64px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: var(--orange);
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            padding: 5px 12px;
+            border-radius: 4px;
+            margin-bottom: 18px;
+            width: fit-content;
+        }
+
+        .section-tag.green-tag { background: var(--green); }
+        .section-tag.brown-tag { background: var(--brown); }
+        .section-tag.gold-tag  { background: var(--gold); color: var(--brown); }
+
+        .section-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(30px, 3.5vw, 48px);
+            font-weight: 900;
+            line-height: 1.05;
+            margin-bottom: 20px;
+            color: var(--brown);
+        }
+
+        .section-content h3 em {
+            font-style: italic;
+            color: var(--orange);
+        }
+
+        .section-content p {
+            font-size: 15px;
+            line-height: 1.85;
+            color: #4A3A2A;
+            margin-bottom: 14px;
+        }
+
+        .section-content p strong {
+            color: var(--brown);
+            font-weight: 600;
+        }
+
+        /* Highlight chips */
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .chip {
+            background: rgba(44,24,16,0.07);
+            color: var(--brown);
+            border: 1px solid rgba(44,24,16,0.15);
+            padding: 5px 13px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        /* Alternating bg tints for content panels */
+        .bg-ivory   { background: var(--ivory); }
+        .bg-light   { background: #F3EDE2; }
+
+        /* ── PROVERB BANNER ── */
+        .proverb-banner {
+            background: var(--green);
+            padding: 60px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .proverb-banner .adinkra-bg {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 400px;
+            opacity: 0.05;
+        }
+
+        .proverb-banner .proverb-text {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(22px, 3.5vw, 38px);
+            font-weight: 700;
+            font-style: italic;
+            color: white;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .proverb-banner .proverb-source {
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            position: relative;
+        }
+
+        /* ── ADINKRA SYMBOLS GRID ── */
+        .adinkra-section {
+            background: var(--brown);
+            padding: 80px;
+            color: white;
+        }
+
+        .adinkra-section .section-intro {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .adinkra-section .section-intro h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 4vw, 44px);
+            font-weight: 900;
+            color: var(--gold);
+            margin-bottom: 14px;
+        }
+
+        .adinkra-section .section-intro p {
+            font-size: 15px;
+            color: rgba(255,255,255,0.6);
+            max-width: 540px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .adinkra-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2px;
+        }
+
+        .adinkra-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(212,168,67,0.12);
+            padding: 36px 24px;
+            text-align: center;
+            transition: background 0.2s;
+        }
+
+        .adinkra-card:hover {
+            background: rgba(212,168,67,0.08);
+        }
+
+        .adinkra-card svg {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 16px;
+            opacity: 0.85;
+        }
+
+        .adinkra-card .symbol-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 6px;
+        }
+
+        .adinkra-card .symbol-meaning {
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+            letter-spacing: 0.5px;
+            line-height: 1.5;
+        }
+
+        /* ── FOOTER ── */
+        footer { background: var(--charcoal); color: white; }
+
+        .footer-inner {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+            padding: 64px 80px 48px;
+        }
+
+        .footer-col h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-col ul li a,
+        .footer-col ul li {
+            text-decoration: none;
+            color: rgba(255,255,255,0.50);
+            font-size: 14px;
+            line-height: 1.5;
+            transition: color 0.2s;
+        }
+
+        .footer-col ul li a:hover { color: white; }
+
+        .footer-col.social p { margin-bottom: 10px; }
+
+        .footer-col.social a {
+            display: inline-block;
+            color: rgba(255,255,255,0.50);
+            font-size: 14px;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-col.social a:hover { color: white; }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding: 20px 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.30); }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 900;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            header { padding: 0 16px; }
+            .nav-links { display: none; }
+
+            .culture-section {
+                grid-template-columns: 1fr;
+            }
+
+            .culture-section.flipped { direction: ltr; }
+
+            .section-visual { min-height: 300px; }
+
+            .section-content { padding: 48px 28px; }
+
+            .adinkra-grid { grid-template-columns: repeat(2, 1fr); }
+
+            .adinkra-section { padding: 60px 28px; }
+
+            .proverb-banner { padding: 48px 28px; }
+
+            .footer-inner {
+                grid-template-columns: 1fr;
+                padding: 48px 28px 32px;
+                gap: 36px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 10px;
+                padding: 20px 28px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="kente-stripe"></div>
+
+<!-- Navigation -->
+<header>
+    <div class="nav_container">
+        <div class="navbar">
+            <div class="brand">
+                <h1>
+                    <span class="r">Gh</span><span class="g">a</span><span class="b">n</span><span class="gr">a</span>
+                </h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="Ghanaclonewebpage.html">Home</a></li>
+                <li><a href="Ghanaabout.html">About</a></li>
+                <li><a href="ghanaculture.html">Culture</a></li>
+            </ul>
+            <div class="btn"><button>Explore</button></div>
+        </div>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <!-- Adinkra watermark: Gye Nyame (supremacy of God) -->
+    <svg class="hero-adinkra" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="100" r="90" stroke="white" stroke-width="3"/>
+        <circle cx="100" cy="100" r="70" stroke="white" stroke-width="1.5"/>
+        <path d="M100 20 C60 40 40 70 40 100 C40 130 60 160 100 180 C140 160 160 130 160 100 C160 70 140 40 100 20Z" stroke="white" stroke-width="2" fill="none"/>
+        <path d="M55 55 L145 145 M145 55 L55 145" stroke="white" stroke-width="1.5"/>
+        <circle cx="100" cy="100" r="20" stroke="white" stroke-width="2" fill="none"/>
+        <circle cx="100" cy="100" r="5" fill="white"/>
+        <path d="M100 80 L108 92 L100 110 L92 92 Z" fill="white" opacity="0.6"/>
+    </svg>
+
+    <div class="hero-content">
+        <div class="hero-eyebrow">
+            <span class="dot"></span>
+            Ghana
+            <span class="dot"></span>
+            West Africa
+            <span class="dot"></span>
+        </div>
+        <h2>THE <em>SOUL</em><br>OF GHANA</h2>
+        <p class="sub">Culture · Tradition · Identity</p>
+        <p class="lead">
+            Ghana's culture is not a chapter in a textbook — it is alive in every drumbeat,
+            every strip of kente, every shared bowl of fufu, and every proverb passed from
+            elder to child under the shade of a neem tree.
+        </p>
+    </div>
+
+    <div class="hero-scroll">
+        <span>Discover</span>
+        <div class="arrow-down"></div>
+    </div>
+</section>
+
+<!-- CULTURE NAV -->
+<nav class="culture-nav">
+    <a href="#kente">Kente & Cloth</a>
+    <a href="#music">Music & Dance</a>
+    <a href="#food">Food & Cuisine</a>
+    <a href="#festivals">Festivals</a>
+    <a href="#adinkra">Adinkra Symbols</a>
+    <a href="#language">Language</a>
+</nav>
+
+<main>
+
+    <!-- SECTION 1: KENTE -->
+    <div id="kente" class="culture-section">
+        <div class="section-visual scene-kente">
+            <!-- Kente pattern SVG illustration -->
+            <svg class="section-adinkra" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <!-- Kente weave pattern -->
+                <rect width="200" height="200" fill="none"/>
+                <!-- Horizontal strips -->
+                <rect y="0"  width="200" height="20" fill="rgba(255,255,255,0.15)"/>
+                <rect y="40" width="200" height="20" fill="rgba(255,255,255,0.15)"/>
+                <rect y="80" width="200" height="20" fill="rgba(255,255,255,0.15)"/>
+                <rect y="120"width="200" height="20" fill="rgba(255,255,255,0.15)"/>
+                <rect y="160"width="200" height="20" fill="rgba(255,255,255,0.15)"/>
+                <!-- Vertical strips -->
+                <rect x="0"  y="0" width="20" height="200" fill="rgba(255,255,255,0.10)"/>
+                <rect x="40" y="0" width="20" height="200" fill="rgba(255,255,255,0.10)"/>
+                <rect x="80" y="0" width="20" height="200" fill="rgba(255,255,255,0.10)"/>
+                <rect x="120"y="0" width="20" height="200" fill="rgba(255,255,255,0.10)"/>
+                <rect x="160"y="0" width="20" height="200" fill="rgba(255,255,255,0.10)"/>
+                <!-- Diamonds at intersections -->
+                <polygon points="10,10 20,0 30,10 20,20" fill="rgba(255,255,255,0.3)"/>
+                <polygon points="50,50 60,40 70,50 60,60" fill="rgba(255,255,255,0.3)"/>
+                <polygon points="90,90 100,80 110,90 100,100" fill="rgba(255,255,255,0.4)"/>
+                <polygon points="130,130 140,120 150,130 140,140" fill="rgba(255,255,255,0.3)"/>
+                <polygon points="170,170 180,160 190,170 180,180" fill="rgba(255,255,255,0.3)"/>
+                <!-- Central star -->
+                <polygon points="100,60 112,88 140,88 118,106 126,134 100,116 74,134 82,106 60,88 88,88" fill="rgba(255,255,255,0.2)"/>
+            </svg>
+        </div>
+        <div class="section-content bg-ivory">
+            <span class="section-tag">Kente & Textiles</span>
+            <h3>Woven in <em>Gold</em> and Glory</h3>
+            <p>
+                Kente cloth is Ghana's most recognisable cultural export — a hand-woven textile
+                of silk and cotton, created on a narrow loom by the <strong>Akan</strong> and <strong>Ewe</strong> peoples.
+                Each strip is roughly four inches wide and woven separately before being sewn together
+                into a full cloth.
+            </p>
+            <p>
+                Originally reserved exclusively for royalty and sacred ceremonies, kente is now worn
+                across the world as a symbol of African pride and heritage. Every colour and geometric
+                pattern carries meaning — <strong>gold</strong> for royalty and wealth, <strong>green</strong> for renewal,
+                <strong>red</strong> for sacrifice and struggle, <strong>black</strong> for spiritual energy and maturity.
+            </p>
+            <p>
+                The town of <strong>Bonwire</strong>, near Kumasi in the Ashanti Region, remains the heartland of
+                kente weaving, where master weavers pass the craft from father to son across generations.
+            </p>
+            <div class="chips">
+                <span class="chip">Bonwire, Ashanti</span>
+                <span class="chip">Silk & Cotton</span>
+                <span class="chip">Akan & Ewe traditions</span>
+                <span class="chip">Royal heritage</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 2: MUSIC -->
+    <div id="music" class="culture-section flipped">
+        <div class="section-visual scene-music">
+            <!-- Music/drum SVG illustration -->
+            <svg class="section-adinkra" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <!-- Fontomfrom drum shape -->
+                <ellipse cx="100" cy="60" rx="50" ry="18" stroke="rgba(212,168,67,0.6)" stroke-width="2" fill="rgba(212,168,67,0.1)"/>
+                <line x1="50" y1="60" x2="60" y2="140" stroke="rgba(212,168,67,0.5)" stroke-width="2"/>
+                <line x1="150"y1="60" x2="140"y2="140" stroke="rgba(212,168,67,0.5)" stroke-width="2"/>
+                <ellipse cx="100" cy="140" rx="40" ry="14" stroke="rgba(212,168,67,0.6)" stroke-width="2" fill="rgba(212,168,67,0.08)"/>
+                <!-- Lacing lines -->
+                <line x1="55" y1="75" x2="65" y2="125" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+                <line x1="145"y1="75" x2="135"y2="125" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+                <line x1="70" y1="68" x2="75" y2="132" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+                <line x1="130"y1="68" x2="125"y2="132" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+                <!-- Musical notes -->
+                <text x="30" y="40" fill="rgba(212,168,67,0.5)" font-size="20">♪</text>
+                <text x="145"y="50" fill="rgba(212,168,67,0.5)" font-size="26">♫</text>
+                <text x="20" y="100" fill="rgba(255,255,255,0.2)" font-size="16">♩</text>
+                <text x="158"y="110" fill="rgba(255,255,255,0.2)" font-size="18">♪</text>
+                <!-- Sound waves -->
+                <path d="M100 160 Q80 170 100 180 Q120 170 100 160" stroke="rgba(212,168,67,0.3)" stroke-width="1.5" fill="none"/>
+                <path d="M100 165 Q70 180 100 195 Q130 180 100 165" stroke="rgba(212,168,67,0.15)" stroke-width="1" fill="none"/>
+            </svg>
+        </div>
+        <div class="section-content bg-light">
+            <span class="section-tag green-tag">Music & Dance</span>
+            <h3>From the <em>Fontomfrom</em> to Highlife</h3>
+            <p>
+                Music is the heartbeat of Ghanaian life. The ancient <strong>Fontomfrom</strong> royal drums
+                of the Ashanti were once reserved solely for the Asantehene — their thunderous sound
+                signalling the presence of royalty. Today, drumming and dancing are woven into every
+                community gathering, funeral, and festival.
+            </p>
+            <p>
+                In the 20th century, Ghana gave the world <strong>Highlife</strong> — a genre that blended
+                traditional Akan melodies with Western brass instruments and guitar. Legends like
+                E.T. Mensah and Ebo Taylor defined an era. The tradition continues today through
+                Afrobeats and <strong>Azonto</strong>, the Ghanaian dance style that swept the continent.
+            </p>
+            <p>
+                The <strong>kpanlogo</strong> rhythm from the Ga people of Accra, the <strong>agbadza</strong> of the Ewe,
+                and the royal <strong>adowa</strong> dance of the Akan — each ethnic group carries its own
+                distinct rhythmic language.
+            </p>
+            <div class="chips">
+                <span class="chip">Highlife</span>
+                <span class="chip">Azonto</span>
+                <span class="chip">Kpanlogo</span>
+                <span class="chip">Fontomfrom Drums</span>
+                <span class="chip">Adowa Dance</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROVERB INTERLUDE -->
+    <div class="proverb-banner">
+        <svg class="adinkra-bg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="100" cy="100" r="80" stroke="white" stroke-width="2" fill="none"/>
+            <circle cx="100" cy="100" r="55" stroke="white" stroke-width="1.5" fill="none"/>
+            <path d="M100 20 L115 65 L160 65 L125 90 L138 135 L100 110 L62 135 L75 90 L40 65 L85 65 Z" stroke="white" stroke-width="1.5" fill="none"/>
+        </svg>
+        <p class="proverb-text">"Onipa na ohia onipa."</p>
+        <p class="proverb-source">Akan Proverb &nbsp;·&nbsp; "A person needs people."</p>
+    </div>
+
+    <!-- SECTION 3: FOOD -->
+    <div id="food" class="culture-section">
+        <div class="section-visual scene-food">
+            <!-- Food/clay pot SVG -->
+            <svg class="section-adinkra" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <!-- Clay pot -->
+                <path d="M70 80 Q65 130 100 150 Q135 130 130 80 Z" stroke="rgba(255,255,255,0.4)" stroke-width="2" fill="rgba(255,255,255,0.08)"/>
+                <ellipse cx="100" cy="80" rx="30" ry="10" stroke="rgba(255,255,255,0.4)" stroke-width="2" fill="rgba(255,255,255,0.12)"/>
+                <!-- Steam lines -->
+                <path d="M85 65 Q80 55 85 45 Q90 35 85 25" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                <path d="M100 60 Q95 50 100 40 Q105 30 100 20" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                <path d="M115 65 Q120 55 115 45 Q110 35 115 25" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                <!-- Plantain shapes -->
+                <ellipse cx="50" cy="155" rx="18" ry="7" transform="rotate(-20 50 155)" stroke="rgba(212,168,67,0.4)" stroke-width="1.5" fill="rgba(212,168,67,0.1)"/>
+                <ellipse cx="150" cy="160" rx="18" ry="7" transform="rotate(15 150 160)" stroke="rgba(212,168,67,0.4)" stroke-width="1.5" fill="rgba(212,168,67,0.1)"/>
+                <!-- Decorative dots -->
+                <circle cx="100" cy="175" r="3" fill="rgba(255,255,255,0.2)"/>
+                <circle cx="88"  cy="178" r="2" fill="rgba(255,255,255,0.2)"/>
+                <circle cx="112" cy="178" r="2" fill="rgba(255,255,255,0.2)"/>
+            </svg>
+        </div>
+        <div class="section-content bg-ivory">
+            <span class="section-tag brown-tag">Food & Cuisine</span>
+            <h3>Shared Bowls,<br><em>Shared Lives</em></h3>
+            <p>
+                Ghanaian cuisine is communal by nature. Meals are rarely eaten alone — food is a
+                reason to gather, and gathering is a reason to cook. The foundational staple is
+                <strong>fufu</strong>, pounded cassava and plantain served with rich soups:
+                light soup, groundnut soup, or palm nut soup.
+            </p>
+            <p>
+                <strong>Jollof rice</strong> — Ghana's deeply spiced, tomato-based rice dish — is a
+                point of national pride and a subject of friendly rivalry with Nigeria.
+                <strong>Banku</strong> and <strong>kenkey</strong>, both fermented corn doughs, are eaten
+                with grilled tilapia, pepper sauce, and shito — Ghana's bold, smoky black chilli paste.
+            </p>
+            <p>
+                Street food culture thrives at every corner. <strong>Kelewele</strong> — spiced fried
+                plantain — is perhaps the most beloved snack, sold at nighttime markets under the
+                warm glow of lanterns across Accra and Kumasi.
+            </p>
+            <div class="chips">
+                <span class="chip">Fufu & Light Soup</span>
+                <span class="chip">Jollof Rice</span>
+                <span class="chip">Banku & Tilapia</span>
+                <span class="chip">Kelewele</span>
+                <span class="chip">Shito</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 4: FESTIVALS -->
+    <div id="festivals" class="culture-section flipped">
+        <div class="section-visual scene-festival">
+            <!-- Festival/mask SVG -->
+            <svg class="section-adinkra" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <!-- Traditional mask outline -->
+                <path d="M100 30 Q130 35 140 60 Q150 85 145 115 Q140 140 120 155 Q110 165 100 165 Q90 165 80 155 Q60 140 55 115 Q50 85 60 60 Q70 35 100 30 Z" stroke="rgba(212,168,67,0.6)" stroke-width="2" fill="rgba(212,168,67,0.07)"/>
+                <!-- Eyes -->
+                <ellipse cx="82" cy="90" rx="10" ry="7" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" fill="rgba(255,255,255,0.08)"/>
+                <ellipse cx="118"cy="90" rx="10" ry="7" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" fill="rgba(255,255,255,0.08)"/>
+                <!-- Tribal marks -->
+                <line x1="100" y1="75" x2="100" y2="60" stroke="rgba(212,168,67,0.4)" stroke-width="1.5"/>
+                <line x1="68"  y1="90" x2="55"  y2="88" stroke="rgba(212,168,67,0.3)" stroke-width="1"/>
+                <line x1="132" y1="90" x2="145" y2="88" stroke="rgba(212,168,67,0.3)" stroke-width="1"/>
+                <!-- Mouth -->
+                <path d="M85 125 Q100 135 115 125" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" fill="none"/>
+                <!-- Decorative top -->
+                <path d="M80 30 Q100 15 120 30" stroke="rgba(212,168,67,0.4)" stroke-width="1.5" fill="none"/>
+                <circle cx="100" cy="12" r="5" stroke="rgba(212,168,67,0.5)" stroke-width="1.5" fill="rgba(212,168,67,0.1)"/>
+                <!-- Side decorations -->
+                <line x1="55" y1="100" x2="38" y2="95"  stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+                <line x1="55" y1="110" x2="36" y2="108" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+                <line x1="145"y1="100" x2="162"y2="95"  stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+                <line x1="145"y1="110" x2="164"y2="108" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+            </svg>
+        </div>
+        <div class="section-content bg-light">
+            <span class="section-tag gold-tag">Festivals</span>
+            <h3>Celebration as<br><em>Sacred Duty</em></h3>
+            <p>
+                Ghana's festivals are not performances for tourists — they are living ceremonies
+                that reconnect communities with their ancestors, their history, and each other.
+                The <strong>Homowo</strong> festival of the Ga people, whose name translates as
+                "hooting at hunger," celebrates the end of a historic famine with feasting,
+                drumming, and the pouring of libations for the dead.
+            </p>
+            <p>
+                The <strong>Aboakyir</strong> deer-hunting festival in Winneba, the <strong>Odwira</strong>
+                purification festival of the Akan, and the spectacular <strong>Panafest</strong> —
+                the Pan-African Historical Theatre Festival held in Cape Coast — each draw
+                Ghanaians home from across the diaspora.
+            </p>
+            <p>
+                The <strong>Durbar of Chiefs</strong>, held during major festivals, is among the most
+                visually magnificent ceremonies in Africa — paramount chiefs carried in palanquins,
+                dressed in kente and gold, surrounded by the sound of fontomfrom drums and the
+                cheers of thousands.
+            </p>
+            <div class="chips">
+                <span class="chip">Homowo</span>
+                <span class="chip">Odwira</span>
+                <span class="chip">Panafest</span>
+                <span class="chip">Aboakyir</span>
+                <span class="chip">Durbar of Chiefs</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADINKRA SYMBOLS SECTION -->
+    <section id="adinkra" class="adinkra-section">
+        <div class="section-intro">
+            <h3>Adinkra Symbols</h3>
+            <p>
+                Adinkra are visual symbols created by the Akan people that represent concepts,
+                aphorisms, and proverbs. Originally used on cloth and pottery, they are today
+                found in architecture, logos, and art across Ghana and the world.
+            </p>
+        </div>
+        <div class="adinkra-grid">
+            <!-- Gye Nyame -->
+            <div class="adinkra-card">
+                <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="40" cy="40" r="32" stroke="#D4A843" stroke-width="1.5" fill="none"/>
+                    <path d="M40 10 C22 18 14 28 14 40 C14 52 22 62 40 70 C58 62 66 52 66 40 C66 28 58 18 40 10Z" stroke="#D4A843" stroke-width="1.5" fill="none"/>
+                    <circle cx="40" cy="40" r="10" stroke="#D4A843" stroke-width="1.5" fill="none"/>
+                    <circle cx="40" cy="40" r="3" fill="#D4A843"/>
+                </svg>
+                <div class="symbol-name">Gye Nyame</div>
+                <div class="symbol-meaning">Supremacy of God<br>Omnipotence</div>
+            </div>
+            <!-- Sankofa -->
+            <div class="adinkra-card">
+                <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M40 65 L20 48 Q10 35 20 22 Q30 10 40 18 Q50 10 60 22 Q70 35 60 48 Z" stroke="#D4A843" stroke-width="1.5" fill="none"/>
+                    <circle cx="40" cy="22" r="5" stroke="#D4A843" stroke-width="1.5" fill="none"/>
+                    <path d="M30 55 Q25 68 35 72 Q45 76 48 65" stroke="#D4A843" stroke-width="1.5" fill="none"/>
+                </svg>
+                <div class="symbol-name">Sankofa</div>
+                <div class="symbol-meaning">Return and get it<br>Learn from the past</div>
+            </div>
+            <!-- Dwennimmen -->
+            <div class="adinkra-card">
+                <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="40" cy="40" r="8" stroke="#D4A843" stroke-width="1.5" fill="none"/>
+                    <path d="M40 32 Q30 20 18 22 Q10 30 18 38 Q26 46 32 40" stroke="#D4A843" stroke-width="1.5" fill="none"/>
+                    <path d="M48 40 Q54 46 62 38 Q70 30 62 22 Q50 20 40 32" stroke="#D4A843" stroke-width="1.5" fill="none"/>
+                    <path d="M40 48 Q30 60 32 68 Q40 74 48 68 Q50 60 40 48" stroke="#D4A843" stroke-width="1.5" fill="none"/>
+                </svg>
+                <div class="symbol-name">Dwennimmen</div>
+                <div class="symbol-meaning">Ram's horns<br>Strength & humility</div>
+            </div>
+            <!-- Aya -->
+            <div class="adinkra-card">
+                <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M40 70 L40 20" stroke="#D4A843" stroke-width="1.5"/>
+                    <path d="M40 55 Q28 48 26 38 Q24 28 32 24 Q38 22 40 28" stroke="#D4A843" stroke-width="1.5" fill="none"/>
+                    <path d="M40 55 Q52 48 54 38 Q56 28 48 24 Q42 22 40 28" stroke="#D4A843" stroke-width="1.5" fill="none"/>
+                    <path d="M40 42 Q28 36 26 26 Q24 16 34 14" stroke="#D4A843" stroke-width="1" fill="none" opacity="0.6"/>
+                    <path d="M40 42 Q52 36 54 26 Q56 16 46 14" stroke="#D4A843" stroke-width="1" fill="none" opacity="0.6"/>
+                </svg>
+                <div class="symbol-name">Aya</div>
+                <div class="symbol-meaning">Fern plant<br>Endurance & defiance</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: LANGUAGE -->
+    <div id="language" class="culture-section">
+        <div class="section-visual scene-language">
+            <!-- Script/language SVG -->
+            <svg class="section-adinkra" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <!-- Stylised speech/text motif -->
+                <rect x="30" y="40" width="140" height="20" rx="4" stroke="rgba(212,168,67,0.5)" stroke-width="1.5" fill="rgba(212,168,67,0.06)"/>
+                <rect x="30" y="72" width="110" height="20" rx="4" stroke="rgba(212,168,67,0.4)" stroke-width="1.5" fill="rgba(212,168,67,0.06)"/>
+                <rect x="30" y="104"width="130" height="20" rx="4" stroke="rgba(212,168,67,0.4)" stroke-width="1.5" fill="rgba(212,168,67,0.06)"/>
+                <rect x="30" y="136"width="90"  height="20" rx="4" stroke="rgba(212,168,67,0.3)" stroke-width="1.5" fill="rgba(212,168,67,0.06)"/>
+                <!-- Speech bubble tail -->
+                <path d="M50 160 L40 178 L70 165" stroke="rgba(212,168,67,0.4)" stroke-width="1.5" fill="none"/>
+                <!-- Decorative letters (Akan-style) -->
+                <text x="38" y="56"  fill="rgba(255,255,255,0.3)" font-size="11" font-family="serif">Akwaaba</text>
+                <text x="38" y="88"  fill="rgba(255,255,255,0.25)" font-size="11" font-family="serif">Medaase</text>
+                <text x="38" y="120" fill="rgba(255,255,255,0.25)" font-size="11" font-family="serif">Ete sen?</text>
+                <text x="38" y="152" fill="rgba(255,255,255,0.2)" font-size="11" font-family="serif">Yɛfrɛ wo…</text>
+            </svg>
+        </div>
+        <div class="section-content bg-ivory">
+            <span class="section-tag brown-tag">Language</span>
+            <h3><em>Akwaaba</em> —<br>You Are Welcome</h3>
+            <p>
+                Ghana is a linguistically rich nation with over <strong>80 languages and dialects</strong>.
+                English serves as the official language and the medium of education and government,
+                a legacy of British colonisation — but it is the indigenous languages that carry
+                the true texture of Ghanaian identity.
+            </p>
+            <p>
+                <strong>Twi</strong> (a dialect of Akan) is the most widely spoken local language,
+                used as a lingua franca across much of southern Ghana. The word <em>Akwaaba</em> —
+                meaning "welcome" — is one of the most recognised Twi words in the world,
+                seen on signs at Kotoka International Airport and heard in homes across the country.
+            </p>
+            <p>
+                Other major languages include <strong>Ewe</strong>, <strong>Ga</strong>, <strong>Dagbani</strong>,
+                and <strong>Hausa</strong>. Ghanaian proverbs — called <em>ebe</em> in Twi — are considered
+                a form of oral literature, used by elders to teach, counsel, and preserve wisdom
+                across generations.
+            </p>
+            <div class="chips">
+                <span class="chip">Twi / Akan</span>
+                <span class="chip">Ewe</span>
+                <span class="chip">Ga</span>
+                <span class="chip">Dagbani</span>
+                <span class="chip">80+ Languages</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- CLOSING PROVERB -->
+    <div class="proverb-banner">
+        <svg class="adinkra-bg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="100" cy="100" r="80" stroke="white" stroke-width="2" fill="none"/>
+            <circle cx="100" cy="100" r="55" stroke="white" stroke-width="1.5" fill="none"/>
+            <line x1="30" y1="100" x2="170" y2="100" stroke="white" stroke-width="1"/>
+            <line x1="100" y1="30"  x2="100" y2="170" stroke="white" stroke-width="1"/>
+        </svg>
+        <p class="proverb-text">"Se wo were fi na wosankofa a yenkyi."</p>
+        <p class="proverb-source">Akan Proverb &nbsp;·&nbsp; "It is not wrong to go back for what you forgot."</p>
+    </div>
+
+</main>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-col">
+            <h4>Ghana Services</h4>
+            <ul>
+                <li><a href="https://evisa.immigration.gov.gh/" target="_blank">Visa Application</a></li>
+                <li><a href="https://passport.mfa.gov.gh/" target="_blank">Passport Application</a></li>
+                <li><a href="https://nia.gov.gh/service/registration-of-citizens-in-ghana/" target="_blank">Ghana Card Registration</a></li>
+                <li><a href="https://www.mint.gov.gh/e-services-portal/registrationnaturalization-as-citizen-of-ghana/" target="_blank">Citizenship Registration</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Ghana Tourist Authority</h4>
+            <ul>
+                <li>info@ghana.travel</li>
+                <li>+233 (030) 700 7100</li>
+                <li>P.O Box GP 310, Accra, Ghana</li>
+                <li>No. 2 Haile Selassie St, Southridge, Accra</li>
+            </ul>
+        </div>
+        <div class="footer-col social">
+            <h4>Follow Ghana</h4>
+            <p><a href="https://www.facebook.com/pages/Ghana/109060342446769" target="_blank">Facebook</a></p>
+            <p><a href="#" target="_blank">WhatsApp</a></p>
+            <p><a href="https://www.instagram.com/ghanatourismauthority/" target="_blank">Instagram</a></p>
+            <p><a href="https://www.tiktok.com/tag/ghana" target="_blank">TikTok</a></p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="footer-logo">
+            <span style="color:#C0392B">Gh</span><span style="color:var(--gold)">a</span><span style="color:rgba(255,255,255,0.45)">n</span><span style="color:var(--green)">a</span>
+        </div>
+        <p>© 2026 Ghana Tourism. All rights reserved GH</p>
+    </div>
+</footer>
+
+</body>
+</html>
